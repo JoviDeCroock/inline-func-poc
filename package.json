@@ -1,0 +1,12 @@
+{
+  "name": "inline-func-poc",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "type": "module",
+  "repository": "git@github.com:JoviDeCroock/inline-func-poc.git",
+  "author": "jdecroock <decroockjovi@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "esbuild": "^0.15.6"
+  }
+}

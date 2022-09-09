@@ -12,7 +12,7 @@ async function main() {
         platform: 'node',
         bundle: true,
         format: 'esm',
-        sourcemap: 'inline',
+        sourcemap: false,
     })
 
     const [file] = built.outputFiles;
@@ -21,7 +21,7 @@ async function main() {
     const functionKeys = Object.keys(result.test)
 
     const builtFunctions = [];
-    const depsText = file.text.slice(0, file.text.indexOf('// config.js'))
+    const depsText = file.text.slice(0, file.text.indexOf('export {'))
     for (const funcKey of functionKeys) {
         const funcText = result.test[funcKey].toString()
         const funcName = `${funcKey}-${Date.now() + Math.random()}.js`
@@ -41,8 +41,9 @@ async function main() {
             platform: 'node',
             allowOverwrite: true,
             bundle: true,
-            format: 'esm',
+            format: 'iife',
             sourcemap: false,
+            minify: true,
         })
         builtFunctions.push(funcResult.outputFiles[0].text)
 
@@ -51,7 +52,6 @@ async function main() {
 
     await fs.promises.unlink(file.path)
     
-    console.log(builtFunctions)
     console.log('result', builtFunctions.map(x => x.toString()))
 }
 

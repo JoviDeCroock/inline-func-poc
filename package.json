@@ -6,6 +6,9 @@
   "repository": "git@github.com:JoviDeCroock/inline-func-poc.git",
   "author": "jdecroock <decroockjovi@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
   "dependencies": {
     "esbuild": "^0.15.6"
   }

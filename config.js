@@ -7,7 +7,9 @@ export default {
             return getLimit()
         },
         y: () => {
-            return limit + 7
+            return limit + multiplier
         }
     }
 }
+
+const multiplier = 7
